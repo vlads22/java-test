@@ -66,21 +66,24 @@ public class PerimeterAssignmentRunner {
     }
 
     public double getLargestSide(Shape s) {
+        // this method returns the longest side in the shape
         double largestSide = 0.0;
         Point prevPt = s.getLastPoint();
 
         for (Point currPt : s.getPoints()){
             double currDist = prevPt.distance(currPt);
-
-            if (currDist >= largestSide) {
+            System.out.println("getLargestSide - current distance is:" + currDist);
+            if (currDist > largestSide) {
                 largestSide = currDist;
             }
 
             prevPt = currPt;
         }
+
+        System.out.println("getLargestSide - longest side is:" + largestSide);
         double largestSideRounded = Math.round(largestSide * 100.0) / 100.0;
 
-        System.out.println("getLargestSide - longest side id:" + largestSideRounded);
+        System.out.println("getLargestSide - longest ROUNDED side is:" + largestSideRounded);
         return largestSideRounded;
     }
 
@@ -105,6 +108,7 @@ public class PerimeterAssignmentRunner {
     }
 
     public double getLargestPerimeterMultipleFiles() {
+        // get the largest perimeter from a selection of files
         DirectoryResource dr = new DirectoryResource();
 
         double largestPerimeter = 0.0;
@@ -114,6 +118,7 @@ public class PerimeterAssignmentRunner {
             Shape s = new Shape(fr);
 
             double currentPerimeter = getPerimeter(s);
+            System.out.println("getLargestPerimeterMultipleFile: currentPerimeter= " + currentPerimeter);
 
             if (currentPerimeter >= largestPerimeter) {
                 largestPerimeter = currentPerimeter;
@@ -127,7 +132,7 @@ public class PerimeterAssignmentRunner {
     }
 
     public String getFileWithLargestPerimeter() {
-        // return the name of the file with the larget perimeter
+        // return the name of the file with the largest perimeter
         DirectoryResource directory = new DirectoryResource();
 
         double largestPerimeter = 0.00;
@@ -140,6 +145,7 @@ public class PerimeterAssignmentRunner {
             Shape shape = new Shape(file);
 
             double currentPerimeter = getPerimeter(shape);
+            System.out.println("getFileWithLargestPerimeter: currentPerimeter= " + currentPerimeter);
 
             if (currentPerimeter >= largestPerimeter) {
                 largestPerimeter = currentPerimeter;
@@ -163,9 +169,8 @@ public class PerimeterAssignmentRunner {
         Shape s = new Shape(fr);
         double length = getPerimeter(s);
 
-
+        System.out.println("testPerimeter: perimeter unrounded= " + length);
         double lengthRoundedToTwoDecimalPlaces = Math.round(length * 100.0) / 100.0;
-
         System.out.println("testPerimeter: perimeter rounded to .00 = " + lengthRoundedToTwoDecimalPlaces);
 
         int numberOfPoints = 0;
@@ -219,24 +224,25 @@ public class PerimeterAssignmentRunner {
 
         //pr.getPerimeter();
 
-        //pr.testPerimeter();
 
-        pr.getNumPoints();
-        pr.getNumPointsWrong();
-
-        //pr.getAverageLength();
-
+//        pr.testPerimeter();
+//        pr.getNumPoints();
+//        pr.getNumPointsWrong();
+//        pr.getAverageLength();
+//        // what is the largest side in the shape
 //        FileResource fr = new FileResource();
 //        Shape s = new Shape(fr);
 //        pr.getLargestSide(s);
 //        pr.getLargestX(s);
+//        pr.testFileWithLargestPerimeter();
+//        pr.testFileWithLargestPerimeter();
 
-        //pr.getLargestPerimeterMultipleFiles();
 
-        //pr.testFileWithLargestPerimeter();
+        // get the largest perimeter of multiple files
+        // pr.getLargestPerimeterMultipleFiles();
 
-        //pr.getFileWithLargestPerimeter();
-        //pr.testFileWithLargestPerimeter();
+
+        pr.getFileWithLargestPerimeter();
 
     }
 }
