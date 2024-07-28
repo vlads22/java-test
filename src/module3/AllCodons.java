@@ -19,8 +19,8 @@ public class AllCodons {
         return dnaStr.length();
     }
 
-    public String findGene(String dna) {
-        int startIndex = dna.indexOf("ATG");
+    public String findGene(String dna, int startIndex) {
+        //int startIndex = dna.indexOf("ATG");
         if (startIndex == -1) {
             return "";
         }
