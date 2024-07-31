@@ -9,6 +9,12 @@ public class Main {
 //        whichCountriesExport.tester();
 
         CSVMax csvMax = new CSVMax();
-        csvMax.testHottestDay();
+        //csvMax.testHottestDay();
+        //csvMax.testHottestInManyDays();
+
+
+
+
+
     }
 }
